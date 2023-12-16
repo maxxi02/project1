@@ -8,17 +8,28 @@ function HomePage() {
   return (
     <div className='flex items-center h-screen w-full max-w-[1600px] mx-auto gap-[100px]'>
       <div className='flex-1 flex flex-col items-start'>
-        <Heading lineHeight='tall'>
+        <Heading lineHeight='normal'>
           <Heading className='py-2' as='h4' size='md'>
             Welcome to WeatherEdu
           </Heading>
-          <Text  fontSize={'6xl'}>Exploring the <Highlight query={'World of Weather'} styles={{bg:'orange.100', rounded: 'md', py: '1', px: '2'}}>Fascinating World of Weather Education</Highlight></Text>
+          <Text  fontSize={'6xl'}>Exploring the 
+          <Highlight query={''} styles={{bg:'orange.100', rounded: 'md', py: '1', px: '2'}}>
+            Fascinating World of Weather Education
+          </Highlight>
+          </Text>
         </Heading>
-        <Link href={'/page2'}>
-        <Button colorScheme='black.500' variant='outline'>
-          Button
-        </Button>
-        </Link>
+        <div className='flex flex-col item-start gap-3'>
+          <Text fontSize='md' className=''>
+            <Highlight query={'Powered by live Forecast Function'} styles={{bg:'orange.100', rounded: 'md', py: '1', px: '2'}}>
+            Powered by live Forecast Function
+            </Highlight>
+          </Text>
+          <Link href={'/page2'}>
+          <Button colorScheme='black.500' variant='outline'>
+            Try it now!
+          </Button>
+          </Link>
+        </div>
       </div>
       <div className='flex-1'>
         <Card className='w-full p-3' colorScheme={'red'} variant={'unstyled'}>
