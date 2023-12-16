@@ -86,7 +86,7 @@ Dive into our learning tactics section, where we provide tailored strategies and
                   <Highlight query='Guides to Lessen Risks:' styles={{ px: '1', py: '1', bg: 'pink.100' }}>
                   Guides to Lessen Risks:
 
-Explore in-depth guides dedicated to lessening risks associated with various weather phenomena. Whether it's preparing for extreme weather events, understanding the impact of climate change, or implementing safety measures, our guides are designed to empower you with actionable insights.
+Explore in-depth guides dedicated to lessening risks associated with various weather phenomena. Whether it&apos;s preparing for extreme weather events, understanding the impact of climate change, or implementing safety measures, our guides are designed to empower you with actionable insights.
                   </Highlight>
                 </ListItem>
               </UnorderedList>
