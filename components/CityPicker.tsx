@@ -2,7 +2,7 @@
 import { Select, Stack } from "@chakra-ui/react";
 import { City } from "country-state-city";
 import { useRouter } from "next/navigation";
-import { useState } from "react";
+import { ChangeEvent, useState } from "react";
 
 
 type cityOption =
@@ -37,10 +37,18 @@ function CityPicker() {
         
     }))
 
-    const handleSelectedCity = (option: cityOption) => {
-     
-        router.push(`/location/${option?.value.name}/${option?.value.latitude}/${option?.value.longitude}`);
-    };
+    const handleSelectedCity = (event: ChangeEvent<HTMLSelectElement>) => {
+        const selectedOption = cityOptions?.find(
+          (o) => o.label === event.target.value
+        );
+    
+        // Check if a valid option is selected before navigating
+        if (selectedOption) {
+          router.push(
+            `/location/${selectedOption.value.name}/${selectedOption.value.latitude}/${selectedOption.value.longitude}`
+          );
+        }
+      };
   return (
     <div>
         <Stack spacing={3}>
