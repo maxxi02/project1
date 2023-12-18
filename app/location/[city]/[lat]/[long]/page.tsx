@@ -6,6 +6,9 @@ import StatCard from "@/components/StatCard"
 import fetchWeatherQuery from "@/graphql/queries/fetchWeatherQueries"
 import { Divider } from "@tremor/react"
 
+
+
+
 type Props =
 {
     params:
@@ -19,7 +22,7 @@ type Props =
 async function page( {params:{city, long, lat}}: Props) {
     const decodeURI = decodeURIComponent(city)
 
-    const client = getClient()
+    const client = getClient();
     try{
       const {data} = await client.query(
         {
