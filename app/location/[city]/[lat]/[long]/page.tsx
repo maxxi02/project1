@@ -1,5 +1,6 @@
 import getClient from "@/apollo-client"
 import { CallOutCard } from "@/components/CallOutCard"
+import Error from "@/components/Error"
 import InformationPanel from "@/components/InformationPanel"
 import StatCard from "@/components/StatCard"
 import fetchWeatherQuery from "@/graphql/queries/fetchWeatherQueries"
@@ -108,7 +109,7 @@ async function page( {params:{city, long, lat}}: Props) {
     }
     catch(error)
     {
-      console.log("Something went wrong!")
+      <Error/>
     }};
     
 
