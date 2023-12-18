@@ -1,7 +1,7 @@
 
 function LearningPage() {
   return (
-    <div>LearningPage</div>
+    <div>Learn Something Today Bitch</div>
   )
 }
 
