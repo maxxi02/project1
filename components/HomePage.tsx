@@ -24,7 +24,7 @@ function HomePage() {
             Powered by live Forecast Function
             </Highlight>
           </Text>
-          <Link href={'/page2'}>
+          <Link href={'/forecastpage'} className='py-2'>
           <Button colorScheme='black.500' variant='outline'>
             Try it now!
           </Button>
