@@ -37,18 +37,10 @@ function CityPicker() {
         
     }))
 
-    const handleSelectedCity = (e: React.ChangeEvent<HTMLSelectElement>) => {
-        e.preventDefault();
-        const selectedOption = cityOptions?.find((o) => o.label === e.target.value);
-        
-        if (selectedOption) {
-          setSelectedCity(selectedOption);
-          router.push(`/location/${selectedOption.value.name}/${selectedOption.value.latitude}/${selectedOption.value.longitude}`);
-        }else
-        {
-            e.preventDefault()
-        }
-      };
+    const handleSelectedCity = (option: cityOption) => {
+     
+        router.push(`/location/${option?.value.name}/${option?.value.latitude}/${option?.value.longitude}`);
+    };
   return (
     <div>
         <Stack spacing={3}>
