@@ -77,7 +77,7 @@ async function page( {params:{city, long, lat}}: Props) {
                         metric={`${results.daily.uv_index_max[0].toFixed(1)}`}
                         color="rose"
                         />
-                      {Number(results.daily.uv_index_max[0].toFixed(1)) > -1 && (
+                      {Number(results.daily.uv_index_max[0].toFixed(1)) > 7 && (
                         <CallOutCard
                           warning
                           message={`UV index in ${decodeURI} is high today, make sure to wear Sun Protection Factor (SPF)`}
