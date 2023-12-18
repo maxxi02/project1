@@ -19,8 +19,7 @@ async function page( {params:{city, long, lat}}: Props) {
     const decodeURI = decodeURIComponent(city)
 
     const client = getClient()
-    if(client)
-    {
+    try{
       const {data} = await client.query(
         {
           query: fetchWeatherQuery,
@@ -107,10 +106,10 @@ async function page( {params:{city, long, lat}}: Props) {
           </div>
         ) 
     }
-    
-
-
-    };
+    catch(error)
+    {
+      console.log("Something went wrong!")
+    }};
     
 
 export default page;
