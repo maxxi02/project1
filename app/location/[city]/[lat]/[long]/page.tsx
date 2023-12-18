@@ -3,34 +3,36 @@ import { CallOutCard } from "@/components/CallOutCard"
 import InformationPanel from "@/components/InformationPanel"
 import StatCard from "@/components/StatCard"
 import fetchWeatherQuery from "@/graphql/queries/fetchWeatherQueries"
-import { Divider, Heading } from "@chakra-ui/react"
+import { Divider } from "@tremor/react"
 
 type Props =
 {
     params:
     {
-        city: string,
-        lat: string,
-        long: string,
+      city: string,
+      lat: string,
+      long: string,
     }
 }
 
 async function page( {params:{city, long, lat}}: Props) {
     const decodeURI = decodeURIComponent(city)
-    try {
-        const client = getClient()
-        const {data} = await client.query(
+
+    const client = getClient()
+    if(client)
+    {
+      const {data} = await client.query(
+        {
+          query: fetchWeatherQuery,
+          variables:
           {
-            query: fetchWeatherQuery,
-            variables:
-            {
-              current_weather: "true",
-              longitude: long,
-              latitude: lat,
-              timezone: "auto",
-              temperature_unit: 'fahrenheit',
-            }
+            current_weather: "true",
+            longitude: long,
+            latitude: lat,
+            timezone: "auto",
+            temperature_unit: 'fahrenheit',
           }
+        }
         )
         const results: Root = data.myQuery;
         console.log(results);
@@ -41,11 +43,11 @@ async function page( {params:{city, long, lat}}: Props) {
             city={city} 
             lat={lat} 
             long={long}/>
-              <div className="flex flex-col w-full px-5">
+              <div className="flex flex-col w-full">
     
                 <div className="p-5">
                   <div className="pb-5">
-                    <Heading className="py-2">Current weather</Heading>
+                    <h2 className="py-2">Current weather</h2>
                     <p className="text-sm text-gray-400">
                       Last Updated at:{" "}
                       {new Date(results.current_weather.time).toLocaleString()} ({results.timezone})
@@ -75,7 +77,7 @@ async function page( {params:{city, long, lat}}: Props) {
                         metric={`${results.daily.uv_index_max[0].toFixed(1)}`}
                         color="rose"
                         />
-                      {Number(results.daily.uv_index_max[0].toFixed(1)) > 7 && (
+                      {Number(results.daily.uv_index_max[0].toFixed(1)) > -1 && (
                         <CallOutCard
                           warning
                           message={`UV index in ${decodeURI} is high today, make sure to wear Sun Protection Factor (SPF)`}
@@ -94,7 +96,7 @@ async function page( {params:{city, long, lat}}: Props) {
                           color="violet"
                           />
                     </div>
-                  </div>
+                    </div>
               </div>
               <Divider/>
               {/* charts */}
@@ -103,11 +105,12 @@ async function page( {params:{city, long, lat}}: Props) {
               </div>
             </div>
           </div>
-        )
-      
-    } catch (error) {
-      console.log("Something went wrong!");
-  }};
+        ) 
+    }
+    
+
+
+    };
     
 
 export default page;
