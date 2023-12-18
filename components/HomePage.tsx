@@ -5,7 +5,7 @@ import Link from 'next/link'
 
 function HomePage() {
   return (
-    <div className='flex items-center h-screen w-full max-w-[1600px] mx-auto gap-[100px]'>
+    <div className='lg:flex p-20 lg:p-0 items-center grid place-items-center h-screen w-full max-w-[1400px] mx-auto lg:gap-[100px] '>
       <div className='flex-1 flex flex-col items-start'>
             Welcome to WeatherEdu
           <h2 className='text-4xl leading-10 py-4 my-2'>
@@ -27,7 +27,7 @@ function HomePage() {
           </Link>
         </div>
       </div>
-      <div className='flex-1'>
+      <div className='flex-1 lg:block hidden'>
         <Card className='w-full p-3' variant='unstyled'>
           <video className='w-full h-full bg-cover rounded-md' src='/bg.mp4' autoPlay muted loop />
         </Card>
