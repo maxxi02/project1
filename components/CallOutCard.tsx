@@ -1,8 +1,7 @@
 'use client'
-
-import { CheckCircleIcon } from "@chakra-ui/icons";
 import { Callout } from "@tremor/react";
-import { FaCheckCircle, FaExclamationCircle  } from "react-icons/fa";
+import { FaExclamationCircle  } from "react-icons/fa";
+import { FcAbout } from "react-icons/fc";
 
 
 type Props =
@@ -15,9 +14,9 @@ type Props =
 export function CallOutCard({message, warning}: Props) {
   return (
     <Callout
-        className="mt-4"
+        className="w-full"
         title={message}
-        icon={warning ? FaExclamationCircle : CheckCircleIcon}
+        icon={warning ? FaExclamationCircle : FcAbout}
         color={warning ? "rose" : "teal"}
     />
   )

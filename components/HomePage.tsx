@@ -12,9 +12,9 @@ function HomePage() {
           <Heading className='py-2' as='h4' size='md'>
             Welcome to WeatherEdu
           </Heading>
-          <Text  fontSize={'6xl'}>Exploring the 
+          <Text  fontSize={'6xl'}>Exploring The{" "}  
           <Highlight query={''} styles={{bg:'orange.100', rounded: 'md', py: '1', px: '2'}}>
-            Fascinating World of Weather Education
+            Fascinating World Of Weather Education
           </Highlight>
           </Text>
         </Heading>
